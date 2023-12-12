@@ -14,42 +14,4 @@ public abstract class Handler {
     public abstract void handleRequest(int request);
 }
 
-class ConcreteHandler1 extends Handler {
 
-    @Override
-    public void handleRequest(int request) {
-        //对请求做一个判断,处理不了,让后继者处理
-        if (request >= 0 && request < 10) {
-            System.out.println(this.getClass().getSimpleName() + "处理请求:" + request);
-        } else if(successor != null){
-            successor.handleRequest(request);
-        }
-    }
-}
-
-
-class ConcreteHandler2 extends Handler {
-
-    @Override
-    public void handleRequest(int request) {
-        //对请求做一个判断,处理不了,让后继者处理
-        if (request >= 10 && request < 20) {
-            System.out.println(this.getClass().getSimpleName() + "处理请求:" + request);
-        } else if(successor != null){
-            successor.handleRequest(request);
-        }
-    }
-}
-
-class ConcreteHandler3 extends Handler {
-
-    @Override
-    public void handleRequest(int request) {
-        //对请求做一个判断,处理不了,让后继者处理
-        if (request > 20 && request < 30) {
-            System.out.println(this.getClass().getSimpleName() + "处理请求:" + request);
-        } else if(successor != null){
-            successor.handleRequest(request);
-        }
-    }
-}
